@@ -7,7 +7,7 @@
   "Usage": 0,
   "UsePublish": 1,
   "UseService": 0,
-  "CoreVersion": "1.26.0.0",
+  "CoreVersion": "26.1.0.0",
   "StudioVersion": "0.1.0.0",
   "DynamicLoading": 0,
   "ContentProto": {
@@ -68,8 +68,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.9000001,
@@ -100,8 +99,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.899999738,
@@ -132,8 +130,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.9000001,
@@ -164,8 +161,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.9,
@@ -196,8 +192,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.9,
@@ -228,8 +223,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.9000002,
@@ -260,8 +254,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.9000001,
@@ -292,8 +285,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 1.30000043,
@@ -324,8 +316,7 @@
                     "Variance": {
                       "x": 1.0,
                       "y": 0.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.8799999,
@@ -356,8 +347,7 @@
                     "Variance": {
                       "x": 0.0,
                       "y": 1.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.5999999,
@@ -388,8 +378,7 @@
                     "Variance": {
                       "x": 0.0,
                       "y": 1.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.5999999,
@@ -420,8 +409,7 @@
                     "Variance": {
                       "x": 0.0,
                       "y": 1.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.600000143,
@@ -452,8 +440,7 @@
                     "Variance": {
                       "x": 0.0,
                       "y": 1.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.8799999,
@@ -484,8 +471,7 @@
                     "Variance": {
                       "x": 0.0,
                       "y": -1.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.5999999,
@@ -516,8 +502,7 @@
                     "Variance": {
                       "x": 0.0,
                       "y": -1.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.5999999,
@@ -548,8 +533,7 @@
                     "Variance": {
                       "x": 0.0,
                       "y": -1.0
-                    },
-                    "IsDynamic": false
+                    }
                   },
                   {
                     "Length": 0.600000143,
@@ -580,8 +564,7 @@
                     "Variance": {
                       "x": 0.0,
                       "y": -1.0
-                    },
-                    "IsDynamic": false
+                    }
                   }
                 ]
               },
@@ -645,7 +628,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "maplemaplayer",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "maplemaplayer",
           "@components": [
@@ -679,7 +664,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "tilemap",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "tilemap",
           "@components": [
@@ -2104,7 +2091,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "MapObject",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "mapobject",
           "@components": [
@@ -2154,7 +2143,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "MapObject",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "mapobject",
           "@components": [
@@ -2205,7 +2196,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "MapObject",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "mapobject",
           "@components": [
@@ -2256,7 +2249,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "MapObject",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "mapobject",
           "@components": [
@@ -2311,7 +2306,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "MoveMonster",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "movemonster",
           "@components": [
@@ -2441,7 +2438,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "maplemaplayer",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "maplemaplayer",
           "@components": [
@@ -2475,7 +2474,9 @@
           "origin": {
             "type": "Model",
             "entry_id": "tilemap",
-            "sub_entity_id": null
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
           },
           "modelId": "tilemap",
           "@components": [
