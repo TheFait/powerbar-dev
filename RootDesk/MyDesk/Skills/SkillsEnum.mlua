@@ -1,0 +1,6 @@
+@Logic
+script SkillsEnum extends Logic
+
+	property string RAGINGBLOW = "raging_blow"
+
+end

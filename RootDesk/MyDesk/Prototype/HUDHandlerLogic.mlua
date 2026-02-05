@@ -1,0 +1,12 @@
+@Logic
+script HUDHandlerLogic extends Logic
+	property Entity ScoreText = "5df035fb-2d96-4201-99e5-dff1a1ad8436"
+	property integer Score = 0
+
+
+	@EventSender("LocalPlayer")
+	handler OnPointsChanged(PointsEarnedEvent event)
+		self.Score += event.Amt
+		self.ScoreText.TextComponent.Text = string.format("%d", self.Score)
+	end
+end

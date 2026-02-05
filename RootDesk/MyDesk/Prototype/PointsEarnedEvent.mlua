@@ -1,0 +1,4 @@
+@Event
+script PointsEarnedEvent extends EventType
+	property integer Amt = 0
+end

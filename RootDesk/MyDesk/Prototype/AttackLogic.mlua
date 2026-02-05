@@ -1,0 +1,4 @@
+@Logic
+script AttackLogic extends Logic
+
+end

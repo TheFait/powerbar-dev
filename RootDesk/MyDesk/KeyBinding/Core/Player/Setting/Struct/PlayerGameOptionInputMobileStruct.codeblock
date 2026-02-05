@@ -1,0 +1,33 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "codeblock://d70bb2d8-ef1f-420d-9389-8274c1b50686",
+  "ContentType": "x-mod/codeblock",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "1.26.0.0",
+  "StudioVersion": "0.1.0.0",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Json",
+    "Json": {
+      "CoreVersion": {
+        "Major": 0,
+        "Minor": 2
+      },
+      "ScriptVersion": {
+        "Major": 1,
+        "Minor": 1
+      },
+      "Description": "",
+      "Id": "d70bb2d8-ef1f-420d-9389-8274c1b50686",
+      "Language": 1,
+      "Name": "PlayerGameOptionInputMobileStruct",
+      "Type": 9,
+      "Source": 0,
+      "Target": null
+    }
+  }
+}

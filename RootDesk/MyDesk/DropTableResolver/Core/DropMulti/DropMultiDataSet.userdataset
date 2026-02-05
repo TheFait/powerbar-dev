@@ -1,0 +1,23 @@
+{
+  "Id": "",
+  "GameId": "",
+  "EntryKey": "userdataset://ed13ac6b-ca25-4446-90c9-7546d0eb6431",
+  "ContentType": "x-mod/userdataset",
+  "Content": "",
+  "Usage": 0,
+  "UsePublish": 1,
+  "UseService": 0,
+  "CoreVersion": "1.26.0.0",
+  "StudioVersion": "0.1.0.0",
+  "DynamicLoading": 0,
+  "ContentProto": {
+    "Use": "Json",
+    "Json": {
+      "name": "DropMultiDataSet",
+      "id": "ed13ac6b-ca25-4446-90c9-7546d0eb6431",
+      "serveronly": false,
+      "syncDataSetWebUrl": null,
+      "dynamicloading": 0
+    }
+  }
+}

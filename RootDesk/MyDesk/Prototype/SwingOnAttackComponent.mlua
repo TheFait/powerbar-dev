@@ -1,0 +1,48 @@
+@Component
+script SwingOnAttackComponent extends Component
+
+    property Entity Body = nil
+    property StateComponent State = nil
+    property any EventHandler = nil
+    property boolean ClearOnTrigger = false
+
+    method void OnBeginPlay()
+        self.Body = self.Entity.AvatarRendererComponent:GetBodyEntity()
+        self.State = self.Entity.StateComponent
+    end
+
+    method void ChangeFrameEvent(SpriteAnimPlayerChangeFrameEvent event)
+        if event.FrameIndex == 2 then
+            local event = PointsEarnedEvent()
+            event.Amt = 100
+            self.Entity:SendEvent(event)
+            if self.ClearOnTrigger then
+                self.Body:DisconnectEvent(SpriteAnimPlayerChangeFrameEvent, self.EventHandler)
+                self.ClearOnTrigger = false
+            end            
+        end
+    end
+
+    @ExecSpace("Client")
+    method void Swing()
+        self.ClearOnTrigger = true
+        local actionEvent = ActionStateChangedEvent("swingOF", "swingOF", 1, SpriteAnimClipPlayType.Onetime)
+        self.Body:SendEvent(actionEvent)
+        self.EventHandler = self.Body:ConnectEvent("SpriteAnimPlayerChangeFrameEvent", self.ChangeFrameEvent)        
+    end
+
+	@EventSender("Service", "InputService")
+    handler OnKeyDown(KeyDownEvent event)
+        -- local actionEvent = ActionStateChangedEvent("swingOF", "swingOF", 1, SpriteAnimClipPlayType.Loop)
+        -- self.Body:SendEvent(actionEvent)
+        -- self.EventHandler = self.Body:ConnectEvent("SpriteAnimPlayerChangeFrameEvent", self.ChangeFrameEvent)
+    end
+
+    @EventSender("Service", "InputService")
+    handler OnKeyUp(KeyUpEvent event)
+        -- local actionEvent = ActionStateChangedEvent("stand1", "stand1", 1, SpriteAnimClipPlayType.Onetime)
+        -- self.Body:SendEvent(actionEvent)
+        -- self.Body:DisconnectEvent(SpriteAnimPlayerChangeFrameEvent, self.EventHandler)
+    end
+
+end

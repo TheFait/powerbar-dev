@@ -1,0 +1,111 @@
+@Component
+script PlayerSkillManager extends Component
+
+	property table SkillBySlotEnum = {}
+
+	property table skills = {}
+
+	@ExecSpace("Client")
+	method boolean TryLearn(integer slotEnum, Skill skill)
+		if isvalid(_KeyBindingSampleLogic.VirtualButtonWindow) == false then
+			return false
+		end
+		
+		self.SkillBySlotEnum[slotEnum] = skill
+		-- _KeyBindingSampleLogic.VirtualButtonWindow:SetSkillInSlot(slotEnum, skill)
+		self:LearnSkillServer(slotEnum, skill)
+		return true
+	end
+
+	@ExecSpace("ServerOnly")
+	method void OnBeginPlay()
+		--Get Access to common
+		self:LoadSkills()
+		-- self.skillIndex = 1
+	end
+
+	@ExecSpace("Server")
+	method void LoadSkills()
+		local skillData = _DataService:GetTable("SkillData")
+		
+		for i = 1,skillData:GetRowCount() do
+			local row = skillData:GetRow(i)
+			local skill = _SkillFactory:CreateSkillWithData(row) 
+			self.skills[skill.skillId] = skill
+			
+			-- self:SendSkillInventoryUpdateEvent(skill)
+		end
+
+		-- self:TryLearn(_InputSlotEnum.DefaultActive, self.skills[1])
+		self.SkillBySlotEnum[_InputSlotEnum.DefaultActive] = self.skills[_SkillsEnum.RAGINGBLOW]
+	end
+
+	@ExecSpace("Server")
+	method void LearnSkillServer(integer slotEnum, Skill skill)
+		self.SkillBySlotEnum[slotEnum] = skill
+	end
+
+	@ExecSpace("Server")
+	method void TryUseSkill(integer slotEnum)
+		---@type Skill
+		local skill = self.SkillBySlotEnum[slotEnum]
+		if skill == nil then
+			-- return false
+		end
+
+		skill:Init(function()
+			self:OnSkillComplete(self.Entity)
+		end)
+		
+		skill:OnTrigger(self.Entity)
+
+		-- return skill:TryUse()
+	end
+
+	method void OnSkillComplete(Entity player)
+		--Implement post skill complition logic here.
+		-- log("Skill complete.")
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Logic", "InputLogic")
+	handler HandleSlotDownEvent(SlotDownEvent event)
+		-- Parameters
+		 local Enum = event.Enum
+		---------------------------------------------------------
+		if self.Entity ~= _UserService.LocalPlayer then return end
+		-- log("Received a key down event")
+		self:TryUseSkill(Enum)
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Self")
+	handler HandleGameOptionInitializedEvent(GameOptionInitializedEvent event)
+		_KeyBindingSampleLogic.VirtualButtonWindow:SetButtons()
+		
+		-- local defaultSkill = BaseSkill()
+		-- defaultSkill.Id = 10
+		-- defaultSkill.IconRUID = "a19629eacf934ccbb47ca33d4fd1db77"
+		-- defaultSkill.TotalCooldown = 1
+		
+		-- local skill1 = BaseSkill()
+		-- skill1.Id = 11
+		-- skill1.IconRUID = "a19629eacf934ccbb47ca33d4fd1db77"
+		-- skill1.TotalCooldown = 2
+		
+		-- local skill2 = BaseSkill()
+		-- skill2.Id = 12
+		-- skill2.IconRUID = "a19629eacf934ccbb47ca33d4fd1db77"
+		-- skill2.TotalCooldown = 3
+		
+		-- local skill3 = BaseSkill()
+		-- skill3.Id = 13
+		-- skill3.IconRUID = "a19629eacf934ccbb47ca33d4fd1db77"
+		-- skill3.TotalCooldown = 4
+
+		-- self:TryLearn(_InputSlotEnum.Active1, skill1)
+		-- self:TryLearn(_InputSlotEnum.Active2, skill2)
+		-- self:TryLearn(_InputSlotEnum.Active3, skill3)
+	end
+
+end
