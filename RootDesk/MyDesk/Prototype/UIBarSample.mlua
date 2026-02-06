@@ -1,0 +1,133 @@
+@Component
+script UIBarSample extends Component
+
+	property Entity Indicator = "8ad7cfae-2dcb-473e-a667-4169e8359b50"
+
+	property Entity HotSpot = "8ddd6de9-b1e9-4668-9547-125833a425ef"
+
+	property Entity Bar = "999f5c53-0add-4d25-aa09-ff3cb4e95b81"
+
+	property Vector2 BarBounds = Vector2(0,0)
+
+	property integer IndicatorSpeed = 500
+
+	property Vector2 HotSpotBounds = Vector2(0,0)
+
+	property number SpeedMultMax = 3.5
+
+	property number SpeedMult = 1
+
+	property integer IndicatorBaseSpeed = 500
+
+	property boolean IsInHotspot = false
+
+	property boolean StreakStarted = false
+
+	property Entity StreakText = "0c21ebf2-9444-40a7-9f63-c18d3944b5fe"
+
+	property integer Streak = 0
+
+	property boolean HtSptLeft = false
+
+	property Entity ComboText = "07f9c1da-ca75-42e3-a680-da5eee9ce563"
+
+	property integer Combo = 0
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		self.BarBounds = Vector2(self.Bar.UITransformComponent.RectSize.x/-2 +20, self.Bar.UITransformComponent.RectSize.x/2 - 20)
+		self._T.IndicatorDirection = 1
+		
+		self:SetHotSpot()
+	end
+
+	@ExecSpace("ClientOnly")
+	method void SetHotSpot()
+		
+		local hotSpotWidth = _UtilLogic:RandomIntegerRange(100, 200)
+		self.HotSpot.UITransformComponent.RectSize.x = hotSpotWidth
+		local hotSpotPct
+		if self.HtSptLeft == true then
+			hotSpotPct = _UtilLogic:RandomIntegerRange(5,45) / 100.0
+		else
+			hotSpotPct = _UtilLogic:RandomIntegerRange(55,95) / 100.0
+		end
+		
+		self.HtSptLeft = not self.HtSptLeft
+		
+		local hotSpotPos = (hotSpotPct * self.Bar.UITransformComponent.RectSize.x) - (self.Bar.UITransformComponent.RectSize.x/2)
+		self.HotSpot.UITransformComponent.Position.x = hotSpotPos
+		-- log("HotSpot moved to: " .. tostring(hotSpotPos))
+		local halfWidth = self.HotSpot.UITransformComponent.RectSize.x/2
+		self.HotSpotBounds = Vector2(self.HotSpot.UITransformComponent.Position.x - halfWidth, self.HotSpot.UITransformComponent.Position.x + halfWidth)
+		-- log("Hotspot bounds: " .. tostring(self.HotSpotBounds))
+		self.IsInHotspot = false
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnUpdate(number delta)
+		self.Indicator.UITransformComponent.Position.x += delta * self.IndicatorSpeed * self._T.IndicatorDirection
+		
+		if self.Indicator.UITransformComponent.Position.x < self.BarBounds.x then
+			self.Indicator.UITransformComponent.Position.x = self.BarBounds.x
+			self._T.IndicatorDirection *= -1
+		elseif self.Indicator.UITransformComponent.Position.x > self.BarBounds.y then
+			self.Indicator.UITransformComponent.Position.x = self.BarBounds.y
+			self._T.IndicatorDirection *= -1
+		end
+		-- log("Position: " .. tostring(self.Indicator.UITransformComponent.Position.x))
+		
+		local indPos = self.Indicator.UITransformComponent.Position
+		
+		if indPos.x > self.HotSpotBounds.x and indPos.x < self.HotSpotBounds.y then
+			if self.IsInHotspot == false then
+				-- log("On Hot Spot")
+			end
+			self.IsInHotspot = true
+		else
+			if self.IsInHotspot == true then
+				if self.StreakStarted == true then
+					self.StreakStarted = false
+					return
+				end
+				-- log("Streak Broken")
+				self.Streak = 0
+				self.StreakText.TextComponent.Text = tostring(self.Streak)
+			end
+			self.IsInHotspot = false
+		end
+	end
+
+	@ExecSpace("ClientOnly")
+	@EventSender("Service", "InputService")
+	handler KeyDownEvent(KeyDownEvent event)
+		if event.key == KeyboardKey.Space then
+			if self.IsInHotspot then
+				log("HIT")
+				self:SetHotSpot()
+		
+				-- fire slot down event?
+				local event = SlotDownEvent()
+				event.Enum = _InputSlotEnum.DefaultActive
+				_InputLogic:SendEvent(event)
+		
+				-- _UserService.LocalPlayer.SwingOnAttackComponent:Swing()
+		
+				self.SpeedMult = math.min(self.SpeedMult * 1.1, self.SpeedMultMax)
+				self.IndicatorSpeed = self.IndicatorBaseSpeed* self.SpeedMult
+				log("New SpeedMult: " .. self.SpeedMult)
+				self.Combo += 1
+				self.ComboText.TextComponent.Text = tostring(self.Combo)
+				self.Streak += 1
+				self.StreakText.TextComponent.Text = tostring(self.Streak)
+				self.StreakStarted = true
+			else
+				self.SpeedMult = 1
+				self.IndicatorSpeed = self.IndicatorBaseSpeed
+				self.Combo = 0
+				self.ComboText.TextComponent.Text = tostring(self.Combo)
+			end
+		end
+	end
+
+end

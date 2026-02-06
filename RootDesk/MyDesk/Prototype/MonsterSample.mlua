@@ -1,0 +1,20 @@
+@Component
+script MonsterSample extends Component
+
+	@ExecSpace("Server")
+	method void GetHit()
+		self.Entity.StateComponent:ChangeState("HIT")
+	end
+
+	@EventSender("LocalPlayer")
+	handler OnPointsChanged(PointsEarnedEvent event)
+		self:GetHit()
+	end
+
+	@ExecSpace("ServerOnly")
+	@EventSender("Self")
+	handler HandleHitEvent(HitEvent event)
+		log("Got hit")
+	end
+
+end
