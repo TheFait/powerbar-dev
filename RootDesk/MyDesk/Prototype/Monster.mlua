@@ -20,6 +20,7 @@ script Monster extends Component
 	@Sync
 	property string dropModelID = "model://maplestoryitem$0039bd125ebb4666a5e6fb27842cfdc7"
 
+	@Sync
 	property integer level = 1
 
 	property any stats = nil
@@ -28,15 +29,36 @@ script Monster extends Component
 		local stats = MonsterStats()
 		stats:Init(self.Entity)
 		self.stats = stats
-		
+
 		self.MaxHp = stats.hp
 		self.Hp = self.MaxHp
-		if (isvalid(self.Entity.HealthbarComponent)) then
-			self._T.HealthBar = self.Entity.HealthbarComponent
-			self._T.HealthBar:Init(self.MaxHp)
+
+		if self:IsClient() then
+			local hpBarEntity = _EntityService:GetEntityByPath("/ui/PopupGroup/TopPanel/MonsterInfo/HpBar")
+			if isvalid(hpBarEntity) and isvalid(hpBarEntity.UIHpBar) then
+				self._T.HealthBar = hpBarEntity.UIHpBar
+				self._T.HealthBar:Init(self.MaxHp)
+			end
+			local levelTextEntity = _EntityService:GetEntityByPath("/ui/PopupGroup/TopPanel/MonsterInfo/Level")
+			if isvalid(levelTextEntity) and isvalid(levelTextEntity.TextComponent) then
+				self._T.LevelText = levelTextEntity.TextComponent
+				self._T.LevelText.Text = "Level " .. tostring(self.level)
+			end
 		end
-		
-		
+	end
+
+	@ExecSpace("ClientOnly")
+	method void OnSyncProperty(string propertyName, any propertyValue)
+		if propertyName == "Hp" then
+			self:UpdateHealth()
+		elseif propertyName == "level" then
+			self:SetLevel(propertyValue)
+		elseif propertyName == "MaxHp" then
+			if isvalid(self._T.HealthBar) then
+				self._T.HealthBar.MaxHp = propertyValue
+				self:UpdateHealth()
+			end
+		end
 	end
 
 	@ExecSpace("ServerOnly")
@@ -63,11 +85,7 @@ script Monster extends Component
 		self.stats:Init(self.Entity)
 		self.MaxHp = self.stats.hp
 		self.Hp = self.MaxHp
-		
-		if (isvalid(self.Entity.HealthbarComponent)) then
-			self._T.HealthBar:Set(self.MaxHp)
-		end
-		
+
 		self.Entity.TransformComponent.Position = position
 		self.Entity:SetEnable(true)
 		self.Entity:SetVisible(true)
@@ -78,18 +96,18 @@ script Monster extends Component
 		end
 	end
 
-	@ExecSpace("Client")
+	@ExecSpace("ClientOnly")
 	method void UpdateHealth()
-		if (isvalid(self._T.HealthBar)) then
+		if isvalid(self._T.HealthBar) then
 			local evt = HealthBarUpdate()
-			 evt.health = self.Hp
+			evt.health = self.Hp
 			self._T.HealthBar.Entity:SendEvent(evt)
 		end
 	end
 
-	@ExecSpace("ServerOnly")
-	method void OnInitialize()
-		
+	@ExecSpace("ClientOnly")
+	method void SetLevel(integer level)
+		self._T.LevelText.Text = "Level " .. tostring(self.level)
 	end
 
 	@ExecSpace("ServerOnly")
@@ -120,11 +138,6 @@ script Monster extends Component
 			
 		end
 		
-		if (isvalid(self._T.HealthBar)) then
-			local evt = HealthBarUpdate()
-			 evt.health = self.Hp
-			self._T.HealthBar.Entity:SendEvent(evt)
-		end
 		if self.Hp > 0 or originalHp <= 0 then
 			return	
 		end

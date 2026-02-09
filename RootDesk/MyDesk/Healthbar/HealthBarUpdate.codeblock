@@ -1,7 +1,7 @@
 {
   "Id": "",
   "GameId": "",
-  "EntryKey": "codeblock://6cd5655d-b8bd-45f8-a9a4-e74d84c167d5",
+  "EntryKey": "codeblock://a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   "ContentType": "x-mod/codeblock",
   "Content": "",
   "Usage": 0,
@@ -22,10 +22,10 @@
         "Minor": 1
       },
       "Description": "",
-      "Id": "6cd5655d-b8bd-45f8-a9a4-e74d84c167d5",
+      "Id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
       "Language": 1,
-      "Name": "UIBarSample",
-      "Type": 1,
+      "Name": "HealthBarUpdate",
+      "Type": 3,
       "Source": 0,
       "Target": null
     }

@@ -1,0 +1,57 @@
+@Component
+script UIHpBar extends Component
+
+	property number MaxHp = 100
+
+	property number CurrentHp = 100
+
+	@ExecSpace("ClientOnly")
+	method void OnBeginPlay()
+		self._T.HealthEntity = self.Entity:GetChildByName("Health")
+		if isvalid(self._T.HealthEntity) then
+			self._T.MaxWidth = self._T.HealthEntity.UITransformComponent.RectSize.x
+		end
+		
+		self._T.HpTextEntity = self.Entity:GetChildByName("HpText")
+		if isvalid(self._T.HpTextEntity) and isvalid(self._T.HpTextEntity.TextComponent) then
+			self._T.HpText = self._T.HpTextEntity.TextComponent
+		end
+		self:UpdateBar()
+	end
+
+	method void Init(number maxHp)
+		self.MaxHp = maxHp
+		self.CurrentHp = maxHp
+		self:UpdateBar()
+	end
+
+	method void Set(number maxHp)
+		self.MaxHp = maxHp
+		self.CurrentHp = maxHp
+		self:UpdateBar()
+	end
+
+	method void UpdateBar()
+		if not isvalid(self._T.HealthEntity) then return end
+		if self.MaxHp <= 0 then return end
+		
+		local ratio = math.max(0, math.min(1, self.CurrentHp / self.MaxHp))
+		local newWidth = self._T.MaxWidth * ratio
+		local rectSize = self._T.HealthEntity.UITransformComponent.RectSize
+		rectSize.x = newWidth
+		self._T.HealthEntity.UITransformComponent.RectSize = rectSize
+		
+		if isvalid(self._T.HpText) then
+			local currentHpInt = math.floor(self.CurrentHp)
+			local maxHpInt = math.floor(self.MaxHp)
+			self._T.HpText.Text = string.format("%d/%d", currentHpInt, maxHpInt)
+		end
+	end
+
+	@EventSender("Self")
+	handler HandleHealthBarUpdate(HealthBarUpdate event)
+		self.CurrentHp = event.health
+		self:UpdateBar()
+	end
+
+end

@@ -96,7 +96,7 @@
             {
               "@type": "MOD.Core.UIGroupComponent",
               "DefaultShow": true,
-              "GroupOrder": 1,
+              "GroupOrder": 2,
               "GroupType": 1,
               "Enable": true
             },
@@ -1186,7 +1186,7 @@
       {
         "id": "0c3e909f-8965-41bb-a6d4-9cb47ffa2575",
         "path": "/ui/PopupGroup/TopPanel",
-        "componentNames": "MOD.Core.UITransformComponent",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.ScrollLayoutGroupComponent",
         "jsonString": {
           "name": "TopPanel",
           "path": "/ui/PopupGroup/TopPanel",
@@ -1252,6 +1252,15 @@
                 "w": 1.0
               },
               "Enable": true
+            },
+            {
+              "@type": "MOD.Core.ScrollLayoutGroupComponent",
+              "ChildAlignment": 1,
+              "OverrideSorting": false,
+              "ScrollBarVisible": 2,
+              "Type": 1,
+              "UseScroll": false,
+              "Enable": true
             }
           ],
           "@version": 1
@@ -1259,11 +1268,11 @@
       },
       {
         "id": "8bcc0282-ee19-4d44-9a14-56ac4cd23399",
-        "path": "/ui/PopupGroup/TopPanel/Panel",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ScrollLayoutGroupComponent",
         "jsonString": {
-          "name": "Panel",
-          "path": "/ui/PopupGroup/TopPanel/Panel",
+          "name": "PlayerInfo",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1282,41 +1291,41 @@
           "@components": [
             {
               "@type": "MOD.Core.UITransformComponent",
-              "AlignmentOption": 15,
+              "AlignmentOption": 4,
               "AnchorsMax": {
-                "x": 1.0,
+                "x": 0.0,
                 "y": 1.0
               },
               "AnchorsMin": {
                 "x": 0.0,
-                "y": 0.0
+                "y": 1.0
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": -340.0,
+                "x": 1036.75684,
                 "y": 0.0
               },
               "OffsetMin": {
-                "x": 140.0,
-                "y": 1600.0
+                "x": 43.2431335,
+                "y": -320.0
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 1.0
               },
               "RectSize": {
-                "x": 600.0,
+                "x": 993.513733,
                 "y": 320.0
               },
               "UIMode": 1,
               "UIVersion": 2,
               "anchoredPosition": {
-                "x": -100.0,
+                "x": 540.0,
                 "y": 0.0
               },
               "Position": {
-                "x": -100.0,
-                "y": 960.0,
+                "x": 540.0,
+                "y": 0.0,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1337,7 +1346,7 @@
             },
             {
               "@type": "MOD.Core.ScrollLayoutGroupComponent",
-              "ChildAlignment": 7,
+              "ChildAlignment": 3,
               "OverrideSorting": false,
               "Type": 1,
               "UseScroll": false,
@@ -1349,11 +1358,11 @@
       },
       {
         "id": "b967446a-8dee-4bb3-aa6a-dfdf7e0733f1",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Score",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Score",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
         "jsonString": {
           "name": "Score",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Score",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Score",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1384,11 +1393,11 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": 600.0,
-                "y": -20.0
+                "y": -10.0
               },
               "OffsetMin": {
                 "x": 0.0,
-                "y": -120.0
+                "y": -110.0
               },
               "Pivot": {
                 "x": 0.5,
@@ -1407,7 +1416,7 @@
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": 300.0,
-                "y": -120.0
+                "y": -110.0
               },
               "Rotation": {
                 "x": 0.0,
@@ -1416,7 +1425,7 @@
               },
               "Position": {
                 "x": 300.0,
-                "y": -120.0,
+                "y": -110.0,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1440,6 +1449,8 @@
               },
               "OverrideSorting": false,
               "SortingLayer": "MapLayer0",
+              "FlipY": false,
+              "Type": 1,
               "Enable": true
             }
           ],
@@ -1448,11 +1459,11 @@
       },
       {
         "id": "b10ef5d7-7926-4443-a5e0-aa2628b71a60",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Score/Label",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Score/Label",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
         "jsonString": {
           "name": "Label",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Score/Label",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Score/Label",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1543,11 +1554,11 @@
       },
       {
         "id": "5df035fb-2d96-4201-99e5-dff1a1ad8436",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Score/Value",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Score/Value",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
         "jsonString": {
           "name": "Value",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Score/Value",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Score/Value",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1639,11 +1650,11 @@
       },
       {
         "id": "d1160fdc-1410-448c-a2b2-7a235af14fe4",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Streak",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Streak",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
         "jsonString": {
           "name": "Streak",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Streak",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Streak",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1674,11 +1685,11 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": 600.0,
-                "y": -120.0
+                "y": -110.0
               },
               "OffsetMin": {
                 "x": 0.0,
-                "y": -220.0
+                "y": -210.0
               },
               "Pivot": {
                 "x": 0.5,
@@ -1697,7 +1708,7 @@
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": 300.0,
-                "y": -220.0
+                "y": -210.0
               },
               "Rotation": {
                 "x": 0.0,
@@ -1706,7 +1717,7 @@
               },
               "Position": {
                 "x": 300.0,
-                "y": -220.0,
+                "y": -210.0,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -1738,11 +1749,11 @@
       },
       {
         "id": "fd01ed08-231d-4eea-be00-030e973236b2",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Streak/Label",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Streak/Label",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
         "jsonString": {
           "name": "Label",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Streak/Label",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Streak/Label",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1834,11 +1845,11 @@
       },
       {
         "id": "0c21ebf2-9444-40a7-9f63-c18d3944b5fe",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Streak/Value",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Streak/Value",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
         "jsonString": {
           "name": "Value",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Streak/Value",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Streak/Value",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1930,11 +1941,11 @@
       },
       {
         "id": "03510a2e-518f-4c32-a666-b000598d49ca",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Combo",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Combo",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
         "jsonString": {
           "name": "Combo",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Combo",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Combo",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -1965,11 +1976,11 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": 600.0,
-                "y": -220.0
+                "y": -210.0
               },
               "OffsetMin": {
                 "x": 0.0,
-                "y": -320.0
+                "y": -310.0
               },
               "Pivot": {
                 "x": 0.5,
@@ -1988,7 +1999,7 @@
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": 300.0,
-                "y": -320.0
+                "y": -310.0
               },
               "Rotation": {
                 "x": 0.0,
@@ -1997,7 +2008,7 @@
               },
               "Position": {
                 "x": 300.0,
-                "y": -320.0,
+                "y": -310.0,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -2029,11 +2040,11 @@
       },
       {
         "id": "1252589e-1072-4138-b95d-16ab25a0972b",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Combo/Label",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Combo/Label",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
         "jsonString": {
           "name": "Label",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Combo/Label",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Combo/Label",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -2125,11 +2136,11 @@
       },
       {
         "id": "07f9c1da-ca75-42e3-a680-da5eee9ce563",
-        "path": "/ui/PopupGroup/TopPanel/Panel/Combo/Value",
+        "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Combo/Value",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
         "jsonString": {
           "name": "Value",
-          "path": "/ui/PopupGroup/TopPanel/Panel/Combo/Value",
+          "path": "/ui/PopupGroup/TopPanel/PlayerInfo/Combo/Value",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -2213,6 +2224,568 @@
               "Overflow": 1,
               "OverrideSorting": false,
               "Text": "00000000",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "78dad2bd-b92a-47cd-ad7f-89c64fe2de06",
+        "path": "/ui/PopupGroup/TopPanel/MonsterInfo",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ScrollLayoutGroupComponent",
+        "jsonString": {
+          "name": "MonsterInfo",
+          "path": "/ui/PopupGroup/TopPanel/MonsterInfo",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 1,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "78dad2bd-b92a-47cd-ad7f-89c64fe2de06",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 4,
+              "AnchorsMax": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "AnchorsMin": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 1040.0,
+                "y": -320.0
+              },
+              "OffsetMin": {
+                "x": 40.0,
+                "y": -620.0
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1000.0,
+                "y": 300.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 540.0,
+                "y": -470.0
+              },
+              "Position": {
+                "x": 540.0,
+                "y": -470.0,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "8738db49d13cefd47b786c6005dbb4c7"
+              },
+              "OverrideSorting": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.ScrollLayoutGroupComponent",
+              "ChildAlignment": 1,
+              "OverrideSorting": false,
+              "ScrollBarVisible": 2,
+              "Type": 1,
+              "UseScroll": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "94fb0926-806a-424e-9445-7b7aa2433de5",
+        "path": "/ui/PopupGroup/TopPanel/MonsterInfo/Name",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
+        "jsonString": {
+          "name": "Name",
+          "path": "/ui/PopupGroup/TopPanel/MonsterInfo/Name",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "/////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitext",
+            "sub_entity_id": null,
+            "root_entity_id": "94fb0926-806a-424e-9445-7b7aa2433de5",
+            "replaced_model_id": null
+          },
+          "modelId": "uitext",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 4,
+              "AnchorsMax": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "AnchorsMin": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 1000.0,
+                "y": 0.0
+              },
+              "OffsetMin": {
+                "x": 0.0,
+                "y": -75.0
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1000.0,
+                "y": 75.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 500.0,
+                "y": -37.5
+              },
+              "Position": {
+                "x": 500.0,
+                "y": -37.5,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "OverrideSorting": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextComponent",
+              "FontColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "FontSize": 60,
+              "MaxSize": 60,
+              "MinSize": 10,
+              "OutlineDistance": {
+                "x": 1.0,
+                "y": -1.0
+              },
+              "OverrideSorting": false,
+              "Text": "Papulatus",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "3fb1fc2b-80cb-4939-b3a8-1b6e428100ff",
+        "path": "/ui/PopupGroup/TopPanel/MonsterInfo/Level",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
+        "jsonString": {
+          "name": "Level",
+          "path": "/ui/PopupGroup/TopPanel/MonsterInfo/Level",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 1,
+          "pathConstraints": "/////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitext",
+            "sub_entity_id": null,
+            "root_entity_id": "94fb0926-806a-424e-9445-7b7aa2433de5",
+            "replaced_model_id": null
+          },
+          "modelId": "uitext",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 4,
+              "AnchorsMax": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "AnchorsMin": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 1000.0,
+                "y": -75.0
+              },
+              "OffsetMin": {
+                "x": 0.0,
+                "y": -150.0
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1000.0,
+                "y": 75.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 500.0,
+                "y": -112.5
+              },
+              "Position": {
+                "x": 500.0,
+                "y": -112.5,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextComponent",
+              "FontColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "FontSize": 40,
+              "MaxSize": 40,
+              "MinSize": 10,
+              "OutlineDistance": {
+                "x": 1.0,
+                "y": -1.0
+              },
+              "OverrideSorting": false,
+              "Text": "Level 100",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "f57376ac-caaa-453e-baf4-09b32867e194",
+        "path": "/ui/PopupGroup/TopPanel/MonsterInfo/HpBar",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,script.UIHpBar",
+        "jsonString": {
+          "name": "HpBar",
+          "path": "/ui/PopupGroup/TopPanel/MonsterInfo/HpBar",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 2,
+          "pathConstraints": "/////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "f57376ac-caaa-453e-baf4-09b32867e194",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 4,
+              "AnchorsMax": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "AnchorsMin": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 950.0,
+                "y": -150.0
+              },
+              "OffsetMin": {
+                "x": 50.0,
+                "y": -250.0
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 900.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 500.0,
+                "y": -200.0
+              },
+              "Position": {
+                "x": 500.0,
+                "y": -200.0,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "24cf25177f4a4f349872564a6064a964"
+              },
+              "OverrideSorting": false,
+              "Enable": true
+            },
+            {
+              "@type": "script.UIHpBar",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "10fbc190-af74-4542-b03e-6f2c1a035d8a",
+        "path": "/ui/PopupGroup/TopPanel/MonsterInfo/HpBar/Health",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "Health",
+          "path": "/ui/PopupGroup/TopPanel/MonsterInfo/HpBar/Health",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "//////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": "10fbc190-af74-4542-b03e-6f2c1a035d8a",
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 1,
+              "AnchorsMax": {
+                "x": 0.0,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.0,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 900.0,
+                "y": 50.0
+              },
+              "OffsetMin": {
+                "x": 0.0,
+                "y": -50.0
+              },
+              "Pivot": {
+                "x": 0.0,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 900.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Position": {
+                "x": -450.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "9158d77e7b71ce747a7cfa12f35b7a74"
+              },
+              "OverrideSorting": false,
+              "Color": {
+                "r": 0.0,
+                "g": 0.734375,
+                "b": 0.0803222656,
+                "a": 1.0
+              },
+              "Type": 1,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "1e4cf727-8dd6-4187-bd61-99a5e3e45eb8",
+        "path": "/ui/PopupGroup/TopPanel/MonsterInfo/HpBar/HpText",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
+        "jsonString": {
+          "name": "HpText",
+          "path": "/ui/PopupGroup/TopPanel/MonsterInfo/HpBar/HpText",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 1,
+          "pathConstraints": "//////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitext",
+            "sub_entity_id": null,
+            "root_entity_id": "1e4cf727-8dd6-4187-bd61-99a5e3e45eb8",
+            "replaced_model_id": null
+          },
+          "modelId": "uitext",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 350.0,
+                "y": 49.9998
+              },
+              "OffsetMin": {
+                "x": -350.0,
+                "y": -50.0002
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 700.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 0.0,
+                "y": -0.0002
+              },
+              "Position": {
+                "x": 0.0,
+                "y": -0.0002,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "OverrideSorting": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextComponent",
+              "FontSize": 50,
+              "MaxSize": 50,
+              "MinSize": 10,
+              "OutlineColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "OutlineDistance": {
+                "x": 1.0,
+                "y": -1.0
+              },
+              "OutlineWidth": 2.0,
+              "OverrideSorting": false,
+              "UseOutLine": true,
               "Enable": true
             }
           ],
@@ -2334,11 +2907,11 @@
               "MobileOnly": false,
               "OffsetMax": {
                 "x": 0.0,
-                "y": 610.0
+                "y": 550.0
               },
               "OffsetMin": {
                 "x": 0.0,
-                "y": 110.0
+                "y": 0.0
               },
               "Pivot": {
                 "x": 0.5,
@@ -2346,17 +2919,17 @@
               },
               "RectSize": {
                 "x": 1080.0,
-                "y": 500.0
+                "y": 550.0
               },
               "UIMode": 1,
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": 0.0,
-                "y": 110.0
+                "y": 0.0
               },
               "Position": {
                 "x": 0.0,
-                "y": -850.0,
+                "y": -960.0,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -2404,41 +2977,41 @@
           "@components": [
             {
               "@type": "MOD.Core.UITransformComponent",
-              "AlignmentOption": 11,
+              "AlignmentOption": 3,
               "AnchorsMax": {
-                "x": 1.0,
-                "y": 0.0
+                "x": 0.5,
+                "y": 1.0
               },
               "AnchorsMin": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0.5,
+                "y": 1.0
               },
               "MobileOnly": false,
               "OffsetMax": {
-                "x": -50.0,
-                "y": 350.0
+                "x": 500.0,
+                "y": 0.0
               },
               "OffsetMin": {
-                "x": 50.0,
-                "y": 150.0
+                "x": -500.0,
+                "y": -200.0
               },
               "Pivot": {
                 "x": 0.5,
                 "y": 0.5
               },
               "RectSize": {
-                "x": 980.0,
+                "x": 1000.0,
                 "y": 200.0
               },
               "UIMode": 1,
               "UIVersion": 2,
               "anchoredPosition": {
                 "x": 0.0,
-                "y": 250.0
+                "y": -100.0
               },
               "Position": {
                 "x": 0.0,
-                "y": 250.0,
+                "y": 450.0,
                 "z": 0.0
               },
               "QuaternionRotation": {
@@ -2613,7 +3186,7 @@
                 "y": 0.0
               },
               "Position": {
-                "x": -470.0,
+                "x": -480.0,
                 "y": 0.0,
                 "z": 0.0
               },
@@ -2734,11 +3307,11 @@
       },
       {
         "id": "3a02573d-62a4-48f6-b5ca-36e3cf646d0b",
-        "path": "/ui/PopupGroup/BarPanel/UIButton",
+        "path": "/ui/PopupGroup/BarPanel/FullScreenButton",
         "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ButtonComponent",
         "jsonString": {
-          "name": "UIButton",
-          "path": "/ui/PopupGroup/BarPanel/UIButton",
+          "name": "FullScreenButton",
+          "path": "/ui/PopupGroup/BarPanel/FullScreenButton",
           "nameEditable": true,
           "enable": true,
           "visible": true,
@@ -2857,6 +3430,618 @@
               },
               "KeyCode": 32,
               "OverrideSorting": false,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "cc7dec0a-2967-46bb-8c83-8de79f06e165",
+        "path": "/ui/PopupGroup/BarPanel/VisualButton",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.ButtonComponent,MOD.Core.TextComponent",
+        "jsonString": {
+          "name": "VisualButton",
+          "path": "/ui/PopupGroup/BarPanel/VisualButton",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 2,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uibutton",
+            "sub_entity_id": null,
+            "root_entity_id": "cc7dec0a-2967-46bb-8c83-8de79f06e165",
+            "replaced_model_id": null
+          },
+          "modelId": "uibutton",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 300.0,
+                "y": -776.304
+              },
+              "OffsetMin": {
+                "x": -300.0,
+                "y": -926.304
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 600.0,
+                "y": 150.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 0.0,
+                "y": -851.304
+              },
+              "Position": {
+                "x": 0.0,
+                "y": -851.304,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "OverrideSorting": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.ButtonComponent",
+              "Colors": {
+                "NormalColor": {
+                  "r": 1.0,
+                  "g": 1.0,
+                  "b": 1.0,
+                  "a": 1.0
+                },
+                "HighlightedColor": {
+                  "r": 0.9607843,
+                  "g": 0.9607843,
+                  "b": 0.9607843,
+                  "a": 1.0
+                },
+                "PressedColor": {
+                  "r": 0.784313738,
+                  "g": 0.784313738,
+                  "b": 0.784313738,
+                  "a": 1.0
+                },
+                "SelectedColor": {
+                  "r": 0.9607843,
+                  "g": 0.9607843,
+                  "b": 0.9607843,
+                  "a": 1.0
+                },
+                "DisabledColor": {
+                  "r": 0.784313738,
+                  "g": 0.784313738,
+                  "b": 0.784313738,
+                  "a": 0.5019608
+                },
+                "ColorMultiplier": 1.0,
+                "FadeDuration": 0.1
+              },
+              "ImageRUIDs": {
+                "HighlightedSprite": null,
+                "PressedSprite": null,
+                "SelectedSprite": null,
+                "DisabledSprite": null
+              },
+              "KeyCode": 32,
+              "OverrideSorting": false,
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextComponent",
+              "FontColor": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+              },
+              "FontSize": 100,
+              "MaxSize": 100,
+              "MinSize": 10,
+              "OutlineDistance": {
+                "x": 1.0,
+                "y": -1.0
+              },
+              "OverrideSorting": false,
+              "Text": "Tap",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "ef3b9c33-3bb5-4851-bc1b-55a245234f48",
+        "path": "/ui/PopupGroup/RecordPanel",
+        "componentNames": "MOD.Core.UITransformComponent",
+        "jsonString": {
+          "name": "RecordPanel",
+          "path": "/ui/PopupGroup/RecordPanel",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 3,
+          "pathConstraints": "///",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uiempty",
+            "sub_entity_id": null,
+            "root_entity_id": "ef3b9c33-3bb5-4851-bc1b-55a245234f48",
+            "replaced_model_id": null
+          },
+          "modelId": "uiempty",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 15,
+              "AnchorsMax": {
+                "x": 1.0,
+                "y": 1.0
+              },
+              "AnchorsMin": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 0.0,
+                "y": -3.05175781E-05
+              },
+              "OffsetMin": {
+                "x": 0.0,
+                "y": -3.05175781E-05
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 1080.0,
+                "y": 1920.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 0.0,
+                "y": -3.05175781E-05
+              },
+              "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "2daf353e-b326-4442-bf5c-9f3b06cb4c1d",
+        "path": "/ui/PopupGroup/RecordPanel/HighStreak",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "HighStreak",
+          "path": "/ui/PopupGroup/RecordPanel/HighStreak",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 4,
+              "AnchorsMax": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "AnchorsMin": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 833.243164,
+                "y": -111.511719
+              },
+              "OffsetMin": {
+                "x": 633.243164,
+                "y": -211.511719
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.0
+              },
+              "RectSize": {
+                "x": 200.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 733.243164,
+                "y": -211.511719
+              },
+              "Position": {
+                "x": 193.243164,
+                "y": 748.4883,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "499c70eab41cfeb418a3ad9f87fd0285"
+              },
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Color": {
+                "r": 0.97265625,
+                "g": 0.859296441,
+                "b": 0.5908127,
+                "a": 1.0
+              },
+              "FlipY": false,
+              "Type": 1,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "2b6eb688-18de-4caf-b434-0469ae87f501",
+        "path": "/ui/PopupGroup/RecordPanel/HighStreak/Value",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
+        "jsonString": {
+          "name": "Value",
+          "path": "/ui/PopupGroup/RecordPanel/HighStreak/Value",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "/////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitext",
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
+          },
+          "modelId": "uitext",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 85.0,
+                "y": 45.0
+              },
+              "OffsetMin": {
+                "x": -85.0,
+                "y": -45.0
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 170.0,
+                "y": 90.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Position": {
+                "x": 0.0,
+                "y": 50.0,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextComponent",
+              "Alignment": 4,
+              "BestFit": true,
+              "FontSize": 50,
+              "MaxSize": 100,
+              "MinSize": 10,
+              "OutlineDistance": {
+                "x": 1.0,
+                "y": -1.0
+              },
+              "Overflow": 1,
+              "OverrideSorting": false,
+              "Text": "000",
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "4103e13e-4240-4f0c-a301-d0240dc844ab",
+        "path": "/ui/PopupGroup/RecordPanel/HighCombo",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent",
+        "jsonString": {
+          "name": "HighCombo",
+          "path": "/ui/PopupGroup/RecordPanel/HighCombo",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 1,
+          "pathConstraints": "////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uisprite",
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
+          },
+          "modelId": "uisprite",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 4,
+              "AnchorsMax": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "AnchorsMin": {
+                "x": 0.0,
+                "y": 1.0
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 832.8657,
+                "y": -210.000183
+              },
+              "OffsetMin": {
+                "x": 632.8657,
+                "y": -310.000183
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.0
+              },
+              "RectSize": {
+                "x": 200.0,
+                "y": 100.0
+              },
+              "UIMode": 1,
+              "UIScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 732.8657,
+                "y": -310.000183
+              },
+              "Position": {
+                "x": 192.865723,
+                "y": 649.9998,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "ImageRUID": {
+                "DataId": "499c70eab41cfeb418a3ad9f87fd0285"
+              },
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Color": {
+                "r": 0.972549,
+                "g": 0.858823538,
+                "b": 0.5921569,
+                "a": 1.0
+              },
+              "FlipY": false,
+              "Type": 1,
+              "Enable": true
+            }
+          ],
+          "@version": 1
+        }
+      },
+      {
+        "id": "ae512d56-802c-4bbb-83c6-1f64bfe1f44d",
+        "path": "/ui/PopupGroup/RecordPanel/HighCombo/Value",
+        "componentNames": "MOD.Core.UITransformComponent,MOD.Core.SpriteGUIRendererComponent,MOD.Core.TextComponent",
+        "jsonString": {
+          "name": "Value",
+          "path": "/ui/PopupGroup/RecordPanel/HighCombo/Value",
+          "nameEditable": true,
+          "enable": true,
+          "visible": true,
+          "localize": true,
+          "displayOrder": 0,
+          "pathConstraints": "/////",
+          "revision": 1,
+          "origin": {
+            "type": "Model",
+            "entry_id": "uitext",
+            "sub_entity_id": null,
+            "root_entity_id": null,
+            "replaced_model_id": null
+          },
+          "modelId": "uitext",
+          "@components": [
+            {
+              "@type": "MOD.Core.UITransformComponent",
+              "AlignmentOption": 0,
+              "AnchorsMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "AnchorsMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "MobileOnly": false,
+              "OffsetMax": {
+                "x": 100.0,
+                "y": 45.0
+              },
+              "OffsetMin": {
+                "x": -100.0,
+                "y": -45.0
+              },
+              "Pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "RectSize": {
+                "x": 200.0,
+                "y": 90.0
+              },
+              "UIMode": 1,
+              "UIVersion": 2,
+              "anchoredPosition": {
+                "x": 0.0,
+                "y": 0.0
+              },
+              "Position": {
+                "x": 0.0,
+                "y": 50.0,
+                "z": 0.0
+              },
+              "QuaternionRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+              },
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.SpriteGUIRendererComponent",
+              "OverrideSorting": false,
+              "SortingLayer": "MapLayer0",
+              "Enable": true
+            },
+            {
+              "@type": "MOD.Core.TextComponent",
+              "Alignment": 4,
+              "BestFit": true,
+              "FontSize": 50,
+              "MaxSize": 100,
+              "MinSize": 10,
+              "OutlineDistance": {
+                "x": 1.0,
+                "y": -1.0
+              },
+              "Overflow": 1,
+              "OverrideSorting": false,
+              "Text": "000",
               "Enable": true
             }
           ],

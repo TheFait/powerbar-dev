@@ -19,19 +19,33 @@ script UIBarSample extends Component
 
 	property integer IndicatorBaseSpeed = 500
 
+	property number HotSpotMaxWidth = 200
+
+	property number HotSpotMinWidth = 80
+
 	property boolean IsInHotspot = false
 
 	property boolean StreakStarted = false
 
 	property Entity StreakText = "0c21ebf2-9444-40a7-9f63-c18d3944b5fe"
 
+	property Entity MaxStreakText = "2b6eb688-18de-4caf-b434-0469ae87f501"
+
 	property integer Streak = 0
+
+	property integer MaxStreak = 0
 
 	property boolean HtSptLeft = false
 
 	property Entity ComboText = "07f9c1da-ca75-42e3-a680-da5eee9ce563"
 
+	property Entity MaxComboText = "ae512d56-802c-4bbb-83c6-1f64bfe1f44d"
+
 	property integer Combo = 0
+
+	property integer MaxCombo = 0
+
+	property Entity FireEffect = "ab55cd89-813d-4fc6-a95d-54f1e82abaa2"
 
 	@ExecSpace("ClientOnly")
 	method void OnBeginPlay()
@@ -43,8 +57,10 @@ script UIBarSample extends Component
 
 	@ExecSpace("ClientOnly")
 	method void SetHotSpot()
-		
-		local hotSpotWidth = _UtilLogic:RandomIntegerRange(100, 200)
+		-- Calculate HotSpot width based on current speed multiplier
+		-- Formula: lerp from MaxWidth (at SpeedMult=1) to MinWidth (at SpeedMult=SpeedMultMax)
+		local speedProgress = (self.SpeedMult - 1) / (self.SpeedMultMax - 1)
+		local hotSpotWidth = self.HotSpotMaxWidth - (speedProgress * (self.HotSpotMaxWidth - self.HotSpotMinWidth))
 		self.HotSpot.UITransformComponent.RectSize.x = hotSpotWidth
 		local hotSpotPct
 		if self.HtSptLeft == true then
@@ -62,6 +78,15 @@ script UIBarSample extends Component
 		self.HotSpotBounds = Vector2(self.HotSpot.UITransformComponent.Position.x - halfWidth, self.HotSpot.UITransformComponent.Position.x + halfWidth)
 		-- log("Hotspot bounds: " .. tostring(self.HotSpotBounds))
 		self.IsInHotspot = false
+	end
+
+	@ExecSpace("ClientOnly")
+	method void ResetHotSpotWidth()
+		local speedProgress = (self.SpeedMult - 1) / (self.SpeedMultMax - 1)
+		local hotSpotWidth = self.HotSpotMaxWidth - (speedProgress * (self.HotSpotMaxWidth - self.HotSpotMinWidth))
+		self.HotSpot.UITransformComponent.RectSize.x = hotSpotWidth
+		local halfWidth = self.HotSpot.UITransformComponent.RectSize.x/2
+		self.HotSpotBounds = Vector2(self.HotSpot.UITransformComponent.Position.x - halfWidth, self.HotSpot.UITransformComponent.Position.x + halfWidth)
 	end
 
 	@ExecSpace("ClientOnly")
@@ -99,11 +124,22 @@ script UIBarSample extends Component
 	end
 
 	@ExecSpace("ClientOnly")
+	method void EnableFireEffect()
+		self.FireEffect.Enable = true
+	end
+
+	@ExecSpace("ClientOnly")
+	method void DisableFireEffect()
+		self.FireEffect.Enable = false
+	end
+
+
+	@ExecSpace("ClientOnly")
 	@EventSender("Service", "InputService")
 	handler KeyDownEvent(KeyDownEvent event)
 		if event.key == KeyboardKey.Space then
 			if self.IsInHotspot then
-				log("HIT")
+		        --log("HIT")
 				self:SetHotSpot()
 		
 				-- fire slot down event?
@@ -118,14 +154,29 @@ script UIBarSample extends Component
 				log("New SpeedMult: " .. self.SpeedMult)
 				self.Combo += 1
 				self.ComboText.TextComponent.Text = tostring(self.Combo)
+				if self.Combo > self.MaxCombo then
+					self.MaxCombo = self.Combo
+					self.MaxComboText.TextComponent.Text = tostring(self.MaxCombo)
+				end
 				self.Streak += 1
 				self.StreakText.TextComponent.Text = tostring(self.Streak)
 				self.StreakStarted = true
+				if self.Streak > self.MaxStreak then
+					self.MaxStreak = self.Streak
+					self.MaxStreakText.TextComponent.Text = tostring(self.MaxStreak)
+				end
+
+				if self.Combo == 10 then
+					self:EnableFireEffect()
+				end
 			else
 				self.SpeedMult = 1
 				self.IndicatorSpeed = self.IndicatorBaseSpeed
 				self.Combo = 0
 				self.ComboText.TextComponent.Text = tostring(self.Combo)
+				self.Streak = 0
+				self:ResetHotSpotWidth()
+				self:DisableFireEffect()
 			end
 		end
 	end

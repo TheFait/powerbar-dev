@@ -1,7 +1,7 @@
 {
   "Id": "",
   "GameId": "",
-  "EntryKey": "codeblock://6cd5655d-b8bd-45f8-a9a4-e74d84c167d5",
+  "EntryKey": "codeblock://9f367e2b-5a0c-4304-b80d-d3d8bfa41612",
   "ContentType": "x-mod/codeblock",
   "Content": "",
   "Usage": 0,
@@ -22,9 +22,9 @@
         "Minor": 1
       },
       "Description": "",
-      "Id": "6cd5655d-b8bd-45f8-a9a4-e74d84c167d5",
+      "Id": "9f367e2b-5a0c-4304-b80d-d3d8bfa41612",
       "Language": 1,
-      "Name": "UIBarSample",
+      "Name": "UIHpBar",
       "Type": 1,
       "Source": 0,
       "Target": null

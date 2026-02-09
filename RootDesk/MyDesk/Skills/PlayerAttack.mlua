@@ -46,16 +46,18 @@ script PlayerAttack extends AttackComponent
 
 	method integer CalcDamage(Entity attacker, Entity defender, string attackInfo)
 		-- local damage = attacker.PlayerInfoComponent.stats:GetPower(defender.Monster.stats)
-		local damage = 50
+		local damage = 1
 		local finalDamage = damage
 		if isvalid(attackInfo) then 
 			local data = _HttpService:JSONDecode(attackInfo)
-			finalDamage = math.floor(damage * (data.Power/100)) 
+			finalDamage = math.floor(damage * (data.Power/100))
+		    --log("Hit Count is: " .. tostring(data.HitCount))
 		else
 			finalDamage = math.floor(damage)
 		end
 		
 		if finalDamage > 0 then 
+		    --log("Returning final damage: " .. finalDamage)
 			return finalDamage
 		else
 			return -1

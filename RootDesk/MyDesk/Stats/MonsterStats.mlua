@@ -14,7 +14,7 @@ script MonsterStats extends CharacterStats
 	method integer GetBaselineHP()
 		local level = self.level
 		if level <= 3 then
-			return 5 * level + 10 
+			return 500 * level + 10 
 		elseif level <= 10 then
 			return 15 * level - 25
 		elseif level <= 20 then
